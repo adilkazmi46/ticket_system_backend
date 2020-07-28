@@ -1,0 +1,14 @@
+{
+  "TOKEN_SECRET": "",
+  "MONGO_CONNECTION": "",
+  "MailGun_API_KEY":"",
+  "MailGun_Domain":"",
+  "POSTFIX_USER":"",
+  "POSTFIX_PASSWORD":"",
+  "From_Email":"",  
+  "AWS_S3_USER_ACCESS_KEY":"",
+  "AWS_S3_USER_SECRET_KEY":"",
+  "AWS_USER_ARN":"",
+  "AWS_S3_BUCKET":""   
+}
+  
