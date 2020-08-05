@@ -53,5 +53,11 @@ router.get("/get-profile-info",authMiddlerware.authenticate,userController.getPr
 router.post("/save-shipping-info",authMiddlerware.authenticate,userController.saveShippingInfo);
 router.get("/get-shipping-info",authMiddlerware.authenticate,userController.getShippingInfo); 
 
+router.post("/make-subadmin",authMiddlerware.authenticate,userController.sub_admin_maker);
+router.post("/make-user",authMiddlerware.authenticate,userController.user_maker);
+
+router.get("/get-sub-admins",authMiddlerware.authenticate,userController.getAllSubAdmins);
+router.get("/get-user",authMiddlerware.authenticate,userController.getAllUsers);
+router.delete("/delete-user",authMiddlerware.authenticate,userController.deleteUser);
 
 module.exports = router;

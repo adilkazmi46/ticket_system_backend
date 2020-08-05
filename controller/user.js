@@ -11,7 +11,7 @@ var signupSchema = {
 };
 var signupAdminSchema = {
     "email" : "required|email",
-    "password": "required|string|min:6|max:20|confirmed",
+    "password": "required|string|confirmed",
     
 };
 
@@ -43,6 +43,9 @@ var shippingSchema = {
    "zip":"string|numeric|required"
 };
 
+var subAdminMakerSchema = {
+   "email":"email|required"
+};
 exports.singup = async (req,res,next)=>{
 
     try{
@@ -204,7 +207,24 @@ exports.getAllUsers = async (req,res,next)=>{
         if(user.role=="admin"||user.role=="sub-admin"){
           let users = await User.find({role:"user"});
            res.json({users:users});
+        }
+        else{
+            res.status(401).json({errors:["you can't access that information"]})
+        }
 
+    }
+    catch(err){
+        res.status(500).json({errors:["something went wrong"]});
+    }
+}
+
+exports.getAllSubAdmins = async (req,res,next)=>{
+    try{
+      
+        let user = await User.findOne({_id:req.userID});
+        if(user.role=="admin"){
+          let users = await User.find({role:"sub-admin"});
+           res.json({users:users});
         }
         else{
             res.status(401).json({errors:["you can't access that information"]})
@@ -315,4 +335,91 @@ exports.signupAdmin = async (req,res,next)=>{
       }
 };
 
- 
+exports.sub_admin_maker=async (req,res,next)=>{
+try{
+let user = await User.findOne({_id:req.userID});
+if(user.role=="admin"){
+let {email}=req.body;
+let validator= new Validator({email},subAdminMakerSchema);
+if(validator.passes()==false){
+res.status(422).json({errors:validator.errors.errors});
+}
+else{
+let sub_admin=await User.findOne({email:email,role:"user"});
+if(sub_admin==null){
+    res.status(404).json({errors:["user not found try another email"]});
+}
+else{
+sub_admin.role="sub-admin";
+await sub_admin.save();
+res.json({success:true,message:"successfully maked the user sub-admin"});
+}
+}
+}
+else{
+    res.status(401).json({errors:["You can't access the data, Only admin is allowed to make a sub admin"]});
+}
+}catch(err){
+console.log(err);
+res.status(500).json({errors:["something went wrong"]});
+};
+};
+
+
+exports.user_maker=async (req,res,next)=>{
+    try{
+    let user = await User.findOne({_id:req.userID});
+    if(user.role=="admin"){
+    let {email}=req.body;
+    let validator= new Validator({email},subAdminMakerSchema);
+    if(validator.passes()==false){
+    res.status(422).json({errors:validator.errors.errors});
+    }
+    else{
+    let sub_admin=await User.findOne({email:email,role:"sub-admin"});
+    if(sub_admin==null){
+        res.status(404).json({errors:["user not found try another email"]});
+    }
+    else{
+    sub_admin.role="user";
+    await sub_admin.save();
+    res.json({success:true,message:"successfully maked sub-admin the user"});
+    }
+    }
+    }
+    else{
+        res.status(401).json({errors:["You can't access the data, Only admin is allowed to make sub admin a user"]});
+    }
+    }catch(err){
+    console.log(err);
+    res.status(500).json({errors:["something went wrong"]});
+    };
+};
+
+exports.deleteUser = async (req,res,next)=>{
+    try{
+        let user = await User.findOne({_id:req.userID});
+        if(user.role=="admin"||user.role=="sub-admin"){
+        let {email}=req.body;
+        let validator= new Validator({email},subAdminMakerSchema);
+        if(validator.passes()==false){
+        res.status(422).json({errors:validator.errors.errors});
+        }
+        else{
+        let user=await User.deleteOne({email:email,role:"user"});
+        if(user.deletedCount>0){
+            res.json({success:true,message:["successfully deleted user"]});
+        }else{
+            res.json({success:false,message:["user not found"]});
+        }
+       
+        }
+        }
+        else{
+            res.status(401).json({errors:["You can't access the data, Only admin is allowed to make sub admin a user"]});
+        }
+        }catch(err){
+        console.log(err);
+        res.status(500).json({errors:["something went wrong"]});
+        };
+};

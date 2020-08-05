@@ -1,14 +1,14 @@
 {
-  "TOKEN_SECRET": "",
-  "MONGO_CONNECTION": "",
-  "MailGun_API_KEY":"",
-  "MailGun_Domain":"",
-  "POSTFIX_USER":"",
-  "POSTFIX_PASSWORD":"",
-  "From_Email":"",  
-  "AWS_S3_USER_ACCESS_KEY":"",
-  "AWS_S3_USER_SECRET_KEY":"",
-  "AWS_USER_ARN":"",
-  "AWS_S3_BUCKET":""   
+  "TOKEN_SECRET": "TOKENSECRET321",
+  "MONGO_CONNECTION": "mongodb+srv://adil:12345@cluster0.ed2hj.mongodb.net/ticketSystem?retryWrites=true&w=majority",
+  "MailGun_API_KEY":"key-e7357a4eed180d434d71f8f14f39b54f",
+  "MailGun_Domain":"sandbox62ac6523bc464799b4aeecbb088b586f.mailgun.org",
+  "POSTFIX_USER":"dev",
+  "POSTFIX_PASSWORD":"ilovebash",
+  "From_Email":"test@admin.com",  
+  "AWS_S3_USER_ACCESS_KEY":"AKIASSDLBMP75I25MG7W",
+  "AWS_S3_USER_SECRET_KEY":"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",
+  "AWS_USER_ARN":"arn:aws:iam::176318145535:user/ticket-system",
+  "AWS_S3_BUCKET":"ticket-system"   
 }
   

@@ -23,6 +23,8 @@
     "nodemailer-mailgun-transport": "^2.0.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
+    "stripe": "^8.81.0",
+    "uuid": "^8.3.0",
     "validatorjs": "^3.18.1"
   }
 }

@@ -15,12 +15,8 @@ date:String,
 time:String,
 category:String,
 subCategory:String,
-availableSeats:{
-longSideLower:Array,
-longSideUpper:Array,
-behindGoal:Array,
-awayEnd:Array
-}
+seats:Array
+
 });
 
 module.exports=mongoose.model("Fixture",fixtureSchema);

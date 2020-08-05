@@ -1,0 +1,1226 @@
+{
+	"info": {
+		"_postman_id": "706e1b79-b37a-46a5-b94b-975dde035799",
+		"name": "ticket_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test212a@ks.ask\",\r\n    \"fullName\":\"testing test\",\r\n    \"password\":\"123456\",\r\n    \"password_confirmation\":\"123456\",\r\n    \"phone\":\"234234234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contact-us",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"akazmi596@gmail.com\",\r\n    \"phone\":\"2736472384\",\r\n    \"message\":\"hello how are you?\",\r\n    \"name\":\"test adil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/contact-us/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contact-us",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzAwNTMsImV4cCI6MTU5NzEzOTY1M30.WAMdrgAeQcKxbVLIQ76OsQCUVs5MEdB4dFXnENdzycc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldPassword\":\"123456\",\r\n    \"newPassword\":\"1234\",\r\n    \"newPassword_confirmation\":\"1234\"\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/change-password",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-profile-info ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzAwNTMsImV4cCI6MTU5NzEzOTY1M30.WAMdrgAeQcKxbVLIQ76OsQCUVs5MEdB4dFXnENdzycc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profilePic",
+							"type": "file",
+							"src": "/C:/Users/adilk/OneDrive/Desktop/Capture.PNG"
+						},
+						{
+							"key": "fullName",
+							"value": "alskaslk aslka",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "034884847493",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "qwerty",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/save-profile-info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"save-profile-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-profile-info ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzA5OTksImV4cCI6MTU5NzE0MDU5OX0.8cP0B6IMoHTgzQMI-QdgKFWNZUyWaGRYSYLzeCGqOyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/users/get-profile-info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"get-profile-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-shipping-info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzA5OTksImV4cCI6MTU5NzE0MDU5OX0.8cP0B6IMoHTgzQMI-QdgKFWNZUyWaGRYSYLzeCGqOyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appartment\":\"kasdjlkasdj\",\r\n    \"streetAddress\":\"asjhd askjdh dasdkqw eqwiejiqwe adhskajdqwoide\",\r\n    \"city\":\"lahore\",\r\n    \"country\":\"pakistan\",\r\n    \"state\":\"punjab\",\r\n    \"zip\":\"54000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/save-shipping-info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"save-shipping-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-shipping-info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzA5OTksImV4cCI6MTU5NzE0MDU5OX0.8cP0B6IMoHTgzQMI-QdgKFWNZUyWaGRYSYLzeCGqOyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/users/get-shipping-info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"get-shipping-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-subscriber",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzA5OTksImV4cCI6MTU5NzE0MDU5OX0.8cP0B6IMoHTgzQMI-QdgKFWNZUyWaGRYSYLzeCGqOyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"aslka@klas.ask\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/subscriber/add-subscriber",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"subscriber",
+						"add-subscriber"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "email-to-subscribers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTU5MzA5OTksImV4cCI6MTU5NzE0MDU5OX0.8cP0B6IMoHTgzQMI-QdgKFWNZUyWaGRYSYLzeCGqOyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"aksjalks\",\r\n     \"message\":\"asjkdhaskdjklasd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/subscriber/email-to-subscribers",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"subscriber",
+						"email-to-subscribers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup-admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin\",\r\n    \"password_confirmation\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/signup-admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"signup-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-fixture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTYyMTMzNjgsImV4cCI6MTU5NzQyMjk2OH0.DkBrdfZIe54V_npEYwIv2JsxEG8wKsyrW20WpR0JLpU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2021-01-26",
+							"type": "text"
+						},
+						{
+							"key": "time",
+							"value": "12:00:00",
+							"type": "text"
+						},
+						{
+							"key": "stadium",
+							"value": "Lords",
+							"type": "text"
+						},
+						{
+							"key": "teamA_name",
+							"value": "testC",
+							"type": "text"
+						},
+						{
+							"key": "teamA_logo",
+							"type": "file",
+							"src": "/C:/Users/adilk/OneDrive/Desktop/Capture.PNG"
+						},
+						{
+							"key": "teamB_name",
+							"value": "testD",
+							"type": "text"
+						},
+						{
+							"key": "teamB_logo",
+							"type": "file",
+							"src": "/C:/Users/adilk/Downloads/1DE09B4A-E4FA-4399-98E3-653A767E0BE5-1595660212824.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fixture/add-fixture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"add-fixture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup-admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin\",\r\n    \"password_confirmation\":\"admin\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/signup-admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"signup-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-fixture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTAxMzcsImV4cCI6MTU5Nzc5OTczN30.34NR2e_4Qo-Ab8sWGEcOtGLkjPOvURMRUQur-5GZ7ws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"matchID\":\"5f2a078b9c59a10700839976\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/delete-fixture",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"delete-fixture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-fixture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1ODE2NzcsImV4cCI6MTU5Nzc5MTI3N30.Iy68kD6hD6ZNbuC3FStxH5I07dw3gqUGsWvaYfn5AfE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "date",
+							"value": "2021-01-25",
+							"type": "text"
+						},
+						{
+							"key": "time",
+							"value": "15:00:00",
+							"type": "text"
+						},
+						{
+							"key": "stadium",
+							"value": "lords stadium",
+							"type": "text"
+						},
+						{
+							"key": "teamA_name",
+							"value": "testC",
+							"type": "text"
+						},
+						{
+							"key": "teamB_name",
+							"value": "testD",
+							"type": "text"
+						},
+						{
+							"key": "teamA_logo",
+							"type": "file",
+							"src": "/C:/Users/adilk/Downloads/Current Case Requests-1596032704280.jpg"
+						},
+						{
+							"key": "teamB_logo",
+							"type": "file",
+							"src": "/C:/Users/adilk/Downloads/Current+Case+Requests-1596032704280.jpg"
+						},
+						{
+							"key": "matchID",
+							"value": "5f2a078b9c59a10700839976",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/edit-fixture",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"edit-fixture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-seats",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTYyMTMzNjgsImV4cCI6MTU5NzQyMjk2OH0.DkBrdfZIe54V_npEYwIv2JsxEG8wKsyrW20WpR0JLpU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seats\":[{\"price\":\"20\",\"seat\":\"AF-10\",\"position\":\"longSideLower\"},{\"price\":\"20\",\"seat\":\"AJ-36\",\"position\":\"longSideUpper\"},\r\n    {\"price\":\"20\",\"seat\":\"AZ-54\",\"position\":\"awayEnd\"},{\"price\":\"20\",\"seat\":\"AZ-54\",\"position\":\"behindGoal\"}],\r\n   \r\n    \"matchID\":\"5f2a0076bd0f657faf853677\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fixture/add-seats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"add-seats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-seat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTYxNTMzNTEsImV4cCI6MTU5NzM2Mjk1MX0.FiX3xC6KJeo9bTfr1JDohWhBGQZWEjl6tL_ubVSq71Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\":\"5f29fe7538275b7e4969da08\",\r\n    \"position\":\"longSideLower\",\r\n    \"match_id\":\"5f29fe5838275b7e4969da06\",\r\n    \"price\": \"22\",\r\n    \"seat\":\"GX-34\",\r\n    \"sold\":\"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fixture/edit-seat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"edit-seat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-seat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTYxNTMzNTEsImV4cCI6MTU5NzM2Mjk1MX0.FiX3xC6KJeo9bTfr1JDohWhBGQZWEjl6tL_ubVSq71Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\":\"5f2314ffd5db890ca8c12706\",\r\n    \"seatGroup\":\"longSideUpper\",\r\n    \"match_id\":\"5f231476d5db890ca8c126ff\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/delete-seat",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"delete-seat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paypal-payment-method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTY0OTgzMTYsImV4cCI6MTU5NzcwNzkxNn0.yLT6Aqut-FNH5URAAXc9HqDCP6YUV_IgPsKGUiIHt18",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seats\": [\r\n       {\r\n            \"price\": \"20\",\r\n            \"seat\": \"AF-10\",\r\n            \"position\": \"longSideLower\",\r\n            \"productID\": \"5f29bbdff5276b62109595c4\",\r\n            \"sold\": false\r\n        },\r\n        {\r\n            \"price\": \"20\",\r\n            \"seat\": \"AJ-36\",\r\n            \"position\": \"longSideUpper\",\r\n            \"productID\": \"5f29bbdff5276b62109595c5\",\r\n            \"sold\": false\r\n        },\r\n        {\r\n            \"price\": \"20\",\r\n            \"seat\": \"AZ-54\",\r\n            \"position\": \"awayEnd\",\r\n            \"productID\": \"5f29bbdff5276b62109595c6\",\r\n            \"sold\": false\r\n        },\r\n        {\r\n            \"price\": \"20\",\r\n            \"seat\": \"AZ-54\",\r\n            \"position\": \"behindGoal\",\r\n            \"productID\": \"5f29bbdff5276b62109595c7\",\r\n            \"sold\": false\r\n        }\r\n    ],\r\n   \r\n    \"matchID\":\"5f29bb84f5276b62109595be\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/order/paypal-payment-method",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"paypal-payment-method"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-seats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTY0OTgzMTYsImV4cCI6MTU5NzcwNzkxNn0.yLT6Aqut-FNH5URAAXc9HqDCP6YUV_IgPsKGUiIHt18",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matchID\":\"5f2a0076bd0f657faf853677\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/get-available-seats",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"get-available-seats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-seat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1ODE2NzcsImV4cCI6MTU5Nzc5MTI3N30.Iy68kD6hD6ZNbuC3FStxH5I07dw3gqUGsWvaYfn5AfE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\":\"5f2a0091bd0f657faf853679\",\r\n    \"match_id\":\"5f2a0076bd0f657faf853677\",\r\n    \"position\":\"longSideLower\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/fixture/delete-seat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"delete-seat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-sold-seats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1ODE2NzcsImV4cCI6MTU5Nzc5MTI3N30.Iy68kD6hD6ZNbuC3FStxH5I07dw3gqUGsWvaYfn5AfE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matchID\":\"5f2a0076bd0f657faf853677\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/get-sold-seats",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"get-sold-seats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-fixtures",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1ODE2NzcsImV4cCI6MTU5Nzc5MTI3N30.Iy68kD6hD6ZNbuC3FStxH5I07dw3gqUGsWvaYfn5AfE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/fixture/get-fixtures",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"fixture",
+						"get-fixtures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTAxMzcsImV4cCI6MTU5Nzc5OTczN30.34NR2e_4Qo-Ab8sWGEcOtGLkjPOvURMRUQur-5GZ7ws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/order/get-all-orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"get-all-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-my-orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjFlYzU1YjUyNWVlOTFkN2NlYjdmYzgiLCJpYXQiOjE1OTY1OTE3ODgsImV4cCI6MTU5NzgwMTM4OH0.LdpeRmffPw3gTbwubJmu3h4tCZJFX7PrSvvGEapjJWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/order/get-my-orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"get-my-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTAxMzcsImV4cCI6MTU5Nzc5OTczN30.34NR2e_4Qo-Ab8sWGEcOtGLkjPOvURMRUQur-5GZ7ws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderID\":\"87W50084UJ174961T\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/order/delete-order",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"delete-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTAxMzcsImV4cCI6MTU5Nzc5OTczN30.34NR2e_4Qo-Ab8sWGEcOtGLkjPOvURMRUQur-5GZ7ws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"address\":{\r\n\"address_line_1\": \"xxx\",\r\n\"address_line_2\": \"xxx\",\r\n\"admin_area_1\": \"as\",\r\n\"admin_area_2\": \"lklk\",\r\n\"country_code\": \"US\",\r\n\"postal_code\": \"11635\"\r\n},\r\n\"matchID\": \"5f2a0076bd0f657faf853677\",\r\n\"orderID\": \"4LM05773X2614811A\",\r\n\"products\": [{\r\n\"position\": \"awayEnd\",\r\n\"price\": \"20\",\r\n\"productID\": \"5f2a0091bd0f657faf85367b\",\r\n\"seat\": \"AZ-54\",\r\n\"sold\": true\r\n},\r\n{\r\n\"position\": \"behindGoal\",\r\n\"price\": \"15\",\r\n\"productID\": \"5f2a0091bd0f657faf85367c\",\r\n\"seat\": \"AZ-54\",\r\n\"sold\": true\r\n}],\r\n\"time\": \"15:00:00\",\r\n\"ammount\":\"550\",\r\n\"currency\":\"pkr\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/order/edit-order",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"edit-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make-subadmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTM4NzQsImV4cCI6MTU5NzgwMzQ3NH0.-1o9ptJACuIDed7kohNc7b0XkXOQjgjgRny_xLcfdgc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/make-subadmin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"make-subadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTM4NzQsImV4cCI6MTU5NzgwMzQ3NH0.-1o9ptJACuIDed7kohNc7b0XkXOQjgjgRny_xLcfdgc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/make-user",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"make-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/users/get-users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"get-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjIzNWUwN2QyYjVmODI5ZDQwMTU2N2MiLCJpYXQiOjE1OTY1OTM4NzQsImV4cCI6MTU5NzgwMzQ3NH0.-1o9ptJACuIDed7kohNc7b0XkXOQjgjgRny_xLcfdgc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test2121@aks.ask\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/delete-user",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"delete-user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
