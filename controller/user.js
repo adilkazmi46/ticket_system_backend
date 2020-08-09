@@ -124,7 +124,8 @@ exports.changePassword=async (req,res,next)=>{
             if(user==null){
               res.status(401).json({errors:["invalid user id"]});
             }else{
-              if(bcrypt.compare(user.password,oldPassword)){
+        
+              if(bcrypt.compareSync(oldPassword,user.password)){
                   
                 user.password=bcrypt.hashSync(newPassword,10);
                 await user.save();
@@ -148,8 +149,8 @@ exports.saveProfileInfo = async (req,res,next)=>{
 try{
 
 
-    let profilePic=req.file.location
-    let { fullName,email,userName,phone } = req.body;
+
+    let { fullName,email,userName,phone,profilePic } = req.body;
     let validator = new Validator({ fullName,email,userName,phone,profilePic },profileInfoSchema);
     if(validator.passes()==false){
         res.status(422).json({errors:validator.errors.errors});
@@ -160,11 +161,12 @@ try{
         }
         else{
        let user = await User.findOne({_id:req.userID});
+       let pic=req.file.location
        user.fullName=fullName;
        user.phone=phone;
        user.email=email;
        user.userName=userName,
-       user.profilePic=profilePic
+       user.profilePic=pic
        await user.save();
        res.json({success:true,message:"successfully updated the info"});    
     }
@@ -189,7 +191,8 @@ exports.getProfileInfo = async (req,res,next) => {
                fullName:user.fullName,
                phone:user.phone,
                email:user.email,
-               userName:user.userName
+               userName:user.userName,
+               role:user.role
            }
            res.json({profileInfo:profileInfo});
         }

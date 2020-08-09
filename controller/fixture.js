@@ -63,22 +63,22 @@ let deleteSeatSchema = {
 exports.addFixture=async (req,res,next)=>{
 try{
     let user=await User.findOne({_id:req.userID});
-          
-    console.log(req.files["teamA_logo"][0].location);
-    console.log(req.files["teamB_logo"][0].location); 
+
     
     if(user==null){
         res.status(401).json({errors:["you are not authorized kindly login to continue"]})
     }else{
         if(user.role=="admin"||user.role=="sub-admin"){
-        let {teamA_name,teamB_name,stadium,date,time}=req.body;
-        let teamA_logo=req.files["teamA_logo"][0].location;
-        let teamB_logo=req.files["teamB_logo"][0].location;
-        let validator=new Validator({teamA_logo,teamA_name,teamB_logo,teamB_name,stadium,date,time},addFixtureSchema);
+        let {teamA_name,teamB_name,stadium,date,time,teamA_logo,teamB_logo}=req.body;
+    
+        let validator=new Validator({logo,teamA_name,teamB_name,stadium,date,time},addFixtureSchema);
         if(validator.passes()==false){
             res.status(422).send({errors:validator.errors.errors});
         }
         else{
+             logo=req.files["logo"][0].location;
+             
+
             let fixture= new Fixture({
                teamA:{
                    name:teamA_name,
@@ -97,14 +97,14 @@ try{
             res.send({success:true,message:"successfully created the fixture"});
         }
         }else{
-             res.status(401).json({errors:["you are not authorized only admin or sub-admin can access it"]});
+             res.status(401).json({errors:[{user:"you are not authorized only admin or sub-admin can access it"}]});
 
         }
     }
 
 }catch(err){
 console.log(err);
-res.status(500).json({erros:["something went wrong"]});
+res.status(500).json({errors:["something went wrong"]});
 };
 };
 

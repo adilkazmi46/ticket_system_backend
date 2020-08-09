@@ -30,7 +30,7 @@ const uploadLogos = multer({
       cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
      }
     }),   
-   }).fields([{name:"teamA_logo"},{name:"teamB_logo"}]);
+   }).single("logo");
 
 
  

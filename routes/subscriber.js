@@ -7,5 +7,6 @@ router.post("/",()=>{
 
 });
 
-
+router.post("/add-subscriber",subscriberController.addSubscriber);
+router.post("/email-to-subscribers",authMiddlerware.authenticate,subscriberController.emailToSubscribers)
 module.exports = router;
